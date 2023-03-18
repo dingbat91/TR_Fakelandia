@@ -24,7 +24,6 @@ export const Header: React.FC = () => {
 					</NavLink>
 				</li>
 			</ul>
-			<div></div>
 		</div>
 	);
 };
