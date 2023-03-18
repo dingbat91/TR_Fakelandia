@@ -18,12 +18,19 @@ export const MisdemeanourList = () => {
 		FetchData();
 	}, []);
 
+	const RandomImage = () => {
+		const width = Math.floor(Math.random() * (10 - 8 + 1) + 8) * 10;
+		const height = Math.floor(Math.random() * (10 - 8 + 1) + 8) * 10;
+		const url = `http://picsum.photos/${width}/${height}/`;
+		return url;
+	};
 	return (
 		<table className='MisdemeanourSection'>
 			<tr>
 				<th>ID</th>
 				<th>misdemeanour</th>
 				<th>Date</th>
+				<th>Punishment</th>
 			</tr>
 			{!loading &&
 				misdemeanours.map((md) => {
@@ -32,6 +39,9 @@ export const MisdemeanourList = () => {
 							<td>{md.citizenId.toString()}</td>
 							<td>{md.misdemeanour}</td>
 							<td>{md.date}</td>
+							<td>
+								<img src={RandomImage()} />
+							</td>
 						</tr>
 					);
 				})}
