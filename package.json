@@ -8,7 +8,8 @@
 	},
 	"scripts": {
 		"start-server": "cd server && npm start",
-		"start-client": "cd client && npm start",
+		"start-client": "cd client && npm run dev",
+		"start-client-host": "cd client && npm run dev --host",
 		"test-client": "cd client && npm test",
 		"test-server": "cd server && npm test",
 		"start": "concurrently -n client,server -c cyan,magenta \"npm run start-client\" \"npm run start-server\""
