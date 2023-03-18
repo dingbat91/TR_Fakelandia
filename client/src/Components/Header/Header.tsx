@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../../globalCSS/normalize.css";
+import "../../normalize/normalize.css";
 import "./Header.css";
 
 export const Header: React.FC = () => {
