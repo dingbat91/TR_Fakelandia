@@ -50,8 +50,9 @@ export const MisdemeanourList = () => {
 		return url;
 	};
 	return (
-		<table className='MisdemeanourSection'>
+		<>
 			<select
+				className='MisDemeanourFilter'
 				// On change sets filter state to rerender to selected filter
 				onChange={(e) => {
 					const data = e.target.value as MisdemeanourKind | "all";
@@ -64,28 +65,31 @@ export const MisdemeanourList = () => {
 				<option value='united'>United</option>
 				<option value='vegetables'>Vegetables</option>
 			</select>
-			<tr>
-				<th>ID</th>
-				<th>misdemeanour</th>
-				<th>Date</th>
-				<th>Punishment</th>
-			</tr>
-			{!loading &&
-				misdemeanours.map((md) => {
-					if (filter === "all" || md.misdemeanour === filter) {
-						return (
-							<tr>
-								<td>{md.citizenId.toString()}</td>
-								<td>{md.misdemeanour}</td>
-								<td>{md.date}</td>
-								<td>
-									<img src={md.image} />
-								</td>
-							</tr>
-						);
-					}
-				})}
-			{loading && <>Loading...</>}
-		</table>
+
+			<table className='MisdemeanourSection'>
+				<tr>
+					<th>ID</th>
+					<th>misdemeanour</th>
+					<th>Date</th>
+					<th>Punishment</th>
+				</tr>
+				{!loading &&
+					misdemeanours.map((md) => {
+						if (filter === "all" || md.misdemeanour === filter) {
+							return (
+								<tr>
+									<td>{md.citizenId.toString()}</td>
+									<td>{md.misdemeanour}</td>
+									<td>{md.date}</td>
+									<td>
+										<img src={md.image} />
+									</td>
+								</tr>
+							);
+						}
+					})}
+				{loading && <>Loading...</>}
+			</table>
+		</>
 	);
 };
