@@ -1,6 +1,6 @@
 import e from "cors";
-import React, { useEffect } from "react";
-import { Misdemeanour } from "../../definitions/misdemeanour";
+import React, { useContext, useEffect } from "react";
+import { MDContext } from "../../../Router/router";
 
 //Misdemeanour Type Definition
 export const MISDEMEANOURS = [
@@ -12,43 +12,12 @@ export const MISDEMEANOURS = [
 export type MisdemeanourKind = (typeof MISDEMEANOURS)[number];
 
 export const MisdemeanourList = () => {
-	const [misdemeanours, setMisdemeanours] = React.useState<Misdemeanour[]>([]);
-	const [loading, setLoading] = React.useState<Boolean>(true);
 	const [filter, setFilter] = React.useState<MisdemeanourKind | "all">("all");
 
-	//API Fetch
-	useEffect(() => {
-		//set loading flag to true to display loading indicator
-		setLoading(true);
-		//Async function to fetch
-		const FetchData = async () => {
-			const response = await fetch(
-				"http://localhost:8080/api/misdemeanours/3/"
-			);
-			const data = await response.json();
-			//returns to returneddata for manipulation
-			let returneddata = data.misdemeanours as Misdemeanour[];
-			//adds image to return data
-			returneddata.forEach((item) => {
-				item.image = RandomImage();
-			});
-			//sorts the items by ID
-			returneddata.sort((a, b) => a.citizenId - b.citizenId);
-			//sets to state
-			setMisdemeanours(returneddata);
-			//Disables Loading indicator
-			setLoading(false);
-		};
-		FetchData();
-	}, []);
+	const MD = useContext(MDContext);
+	const misdemeanours = MD.items;
+	let loading = MD.loading;
 
-	// Creates random image via randomiseation of width and height parameters
-	const RandomImage = () => {
-		const width = Math.floor(Math.random() * (10 - 8 + 1) + 8) * 10;
-		const height = Math.floor(Math.random() * (10 - 8 + 1) + 8) * 10;
-		const url = `http://picsum.photos/${width}/${height}/`;
-		return url;
-	};
 	return (
 		<>
 			<select

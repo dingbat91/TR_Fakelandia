@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { MisdemeanourKind } from "../misdemeanours/Components/list display/misdemeanourlist";
+import { MDContext } from "../Router/router";
+import { Misdemeanour } from "../misdemeanours/definitions/misdemeanour";
+import { v4 as uuidv4 } from "uuid";
+import { RandomImage } from "../script/RandomImage";
 
 enum ReasonEnum {
 	Rudeness = "Rudeness",
@@ -24,6 +28,7 @@ export const Confessions: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<Inputs>();
+	const MD = useContext(MDContext);
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		const subject = data.ConfessionSubject;
 		let reason: MisdemeanourKind | "just-talk";
@@ -67,8 +72,18 @@ export const Confessions: React.FC = () => {
 			.then(async (response) => {
 				const data = await response.json();
 				if (data.success === true && data.justTalked === false) {
-					setResponseMessage(data.message);
+					const date = new Date();
+					const currentMoment = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+					const newData: Misdemeanour = {
+						citizenId: Math.floor(Date.now() + Math.random()),
+						misdemeanour: postObject.reason,
+						date: currentMoment,
+						image: RandomImage(),
+					};
+					const newlist = [...MD.items, newData];
+					MD.update(newlist);
 				}
+				setResponseMessage(data.message);
 			})
 			.catch((e: Error) => {
 				console.log(e.message);
