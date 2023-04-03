@@ -1,49 +1,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500&display=swap");
 
-* {
-	border: 1px solid red;
-}
-
 .Header {
-	background-color: darkgray;
-	display: grid;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+	width: 100%;
+	background-color: #b5ade6;
 }
 
 .Header__Title {
 	color: gold;
-	font-family: "Merriweather Sans", sans-serif;
+	text-shadow: 2px 2px 1px black;
+	text-align: center;
+	border-bottom: black 1px solid;
+	margin: 0%;
 }
 
 .NavMenu {
-	list-style: none;
+	display: flex;
+	justify-content: space-evenly;
+	padding-top: 5px;
 }
 
-.NavMenu__link {
-	text-decoration: underline;
-	color: gold;
+.NavMenu__Button {
+	background-color: transparent;
+	border: none;
+	border-radius: 3px;
+	font-weight: 500;
+	padding: 10px;
 }
 
-@media screen and (max-width: 700px) {
+.NavMenu__Button:hover {
+	background-color: rgb(255, 255, 0);
+	transition: background-color 0.2s;
+}
+.NavMenu__Button:active {
+	background-color: rgb(255, 255, 62);
+}
+
+@media screen and (min-width: 426px) {
 	.Header {
-		grid-template-rows: 1 fr 1fr;
-		grid-template-columns: 1fr 2fr 1fr;
-	}
-
-	.Header__Title {
-		grid-row: 1;
-		grid-column: 1/4;
-		text-shadow: 1.5px 2px black;
-		font-size: 2rem;
-		text-align: center;
+		width: 80%;
+		justify-content: center;
+		align-self: center;
+		border-radius: 0px 0px 10px 10px;
 	}
 
 	.NavMenu {
-		grid-row: 2;
-		grid-column: 2/3;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		align-items: center;
-		padding: 0px;
+		justify-content: center;
+		gap: 10px;
 	}
 }

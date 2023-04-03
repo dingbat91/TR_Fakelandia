@@ -1,0 +1,13 @@
+.PageContainer {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	align-items: center;
+}
+
+.MainContent {
+	display: flex;
+	justify-content: center;
+	flex: 1;
+	width: 100%;
+}

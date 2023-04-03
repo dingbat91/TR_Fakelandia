@@ -6,6 +6,7 @@ import { MDContext } from "../Router/router";
 import { Misdemeanour } from "../misdemeanours/definitions/misdemeanour";
 import { v4 as uuidv4 } from "uuid";
 import { RandomImage } from "../script/RandomImage";
+import "./Confessions.css";
 
 enum ReasonEnum {
 	Rudeness = "Rudeness",
@@ -91,8 +92,8 @@ export const Confessions: React.FC = () => {
 	};
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit(onSubmit)}>
+		<main className='Form__Container'>
+			<form className='Form' onSubmit={handleSubmit(onSubmit)}>
 				<input
 					{...register("ConfessionSubject", {
 						required: "Please Input a message here",
@@ -120,6 +121,6 @@ export const Confessions: React.FC = () => {
 				<input type='submit' />
 			</form>
 			{responseMessage && <p>{responseMessage}</p>}
-		</div>
+		</main>
 	);
 };

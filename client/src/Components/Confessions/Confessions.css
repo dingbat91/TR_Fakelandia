@@ -1,0 +1,9 @@
+.Form__Container {
+	width: 80%;
+}
+
+.Form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}

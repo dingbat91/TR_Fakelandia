@@ -1,0 +1,38 @@
+.HomePage {
+	display: flex;
+	font-family: "Merriweather Sans", sans-serif;
+	flex-direction: column;
+	width: 80%;
+}
+
+.HomePage__Title {
+	color: gold;
+	font-size: 5vh;
+	text-shadow: 1.5px 1px black;
+	text-decoration: underline;
+	margin: 0%;
+	padding: 1% 1% 3% 0.5%;
+}
+.HomePage__Container {
+	background-color: rgb(255, 255, 255);
+	height: 100vh;
+	padding: 2%;
+	display: flex;
+	flex-direction: column;
+}
+
+.HomePage__Content {
+	background-color: rgb(227, 226, 226);
+}
+
+@media screen and (min-width: 426px) {
+	.HomePage__Container {
+		background-color: rgb(220, 220, 220);
+		padding: 2%;
+		border-radius: 2%;
+	}
+
+	.HomePage__Content {
+		padding: 1%;
+	}
+}
