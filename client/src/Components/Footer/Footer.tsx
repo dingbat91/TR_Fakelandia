@@ -1,5 +1,10 @@
 import React from "react";
+import "./Footer.css";
 
 export const Footer: React.FC = () => {
-	return <div>Footer</div>;
+	return (
+		<footer className='Footer'>
+			<div className='Information'>Created by Matthew Hanson 2023</div>
+		</footer>
+	);
 };

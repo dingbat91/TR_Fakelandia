@@ -1,5 +1,29 @@
 .Form__Container {
-	width: 80%;
+	width: 50%;
+}
+
+.Form__ConfessionInfo {
+	height: 30%;
+}
+
+.Form__Label {
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-shadow: 2px 2px white;
+}
+
+.Form__Submit {
+	background-color: rgb(222, 222, 0);
+	width: 70%;
+	align-self: center;
+	padding: 0.5%;
+	border-radius: 10px;
+}
+
+.Form__Response {
+	margin: 5%;
+	background-color: white;
+	padding: 1%;
 }
 
 .Form {

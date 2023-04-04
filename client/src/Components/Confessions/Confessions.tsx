@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { MisdemeanourKind } from "../misdemeanours/Components/list display/misdemeanourlist";
 import { MDContext } from "../Router/router";
 import { Misdemeanour } from "../misdemeanours/definitions/misdemeanour";
-import { v4 as uuidv4 } from "uuid";
 import { RandomImage } from "../script/RandomImage";
 import "./Confessions.css";
 
@@ -94,7 +93,11 @@ export const Confessions: React.FC = () => {
 	return (
 		<main className='Form__Container'>
 			<form className='Form' onSubmit={handleSubmit(onSubmit)}>
+				<label className='Form__Label' htmlFor='ConfessionSubject'>
+					Title
+				</label>
 				<input
+					className='Form__ConfessionSubject'
 					{...register("ConfessionSubject", {
 						required: "Please Input a message here",
 					})}
@@ -104,23 +107,36 @@ export const Confessions: React.FC = () => {
 					name='ConfessionSubject'
 					render={({ message }) => <>{message}</>}
 				/>
-				<select {...register("ConfessionReason")}>
+				<label className='Form__Label' htmlFor='ConfessionReason'>
+					Reason For Confession
+				</label>
+				<select
+					className='Form__ConfessionReason'
+					{...register("ConfessionReason")}
+				>
 					<option value='Rudeness'>Rudeness</option>
 					<option value='Vegetables'>Vegetables</option>
 					<option value='Lift'>Lift</option>
 					<option value='United'>United</option>
 					<option value='Just-Talk'>I just want to talk</option>
 				</select>
+				<label className='Form__Label' htmlFor='ConfessionInfo'>
+					Confession
+				</label>
 				<textarea
+					rows={15}
+					className='Form__ConfessionInfo'
 					{...register("ConfessionInfo", {
 						required: true,
 						minLength: 5,
 						maxLength: 2000,
 					})}
 				/>
-				<input type='submit' />
+				<input className='Form__Submit' type='submit' />
 			</form>
-			{responseMessage && <p>{responseMessage}</p>}
+			{responseMessage && (
+				<article className='Form__Response'>{responseMessage}</article>
+			)}
 		</main>
 	);
 };

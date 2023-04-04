@@ -1,0 +1,14 @@
+.Footer {
+	display: flex;
+	background-color: #b5ade6;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+@media screen and (min-width: 426px) {
+	.Footer {
+		width: 80%;
+		border-radius: 10px 10px 0px 0px;
+	}
+}
