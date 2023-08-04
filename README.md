@@ -16,10 +16,10 @@ This is your chance to show off everything you've learned about building React a
 
 Remember the importance of:
 
--   Writing tests for your components
--   Using BEM/OOCSS to write scalable, reusable CSS
--   Keeping your components small and refactoring them into sub-components where necessary
--   Using hooks to store state, make API calls, and pass data down to sub-components through contexts
+- Writing tests for your components
+- Using BEM/OOCSS to write scalable, reusable CSS
+- Keeping your components small and refactoring them into sub-components where necessary
+- Using hooks to store state, make API calls, and pass data down to sub-components through contexts
 
 ## Crimes and Misdemeanours
 
@@ -27,10 +27,10 @@ The Fakelandians have asked for a site that lets them browse lists of crimes com
 
 As a non-citizen, you might not be aware that there are only four possible crimes in Fakelandia:
 
--   Mild Public Rudeness
--   Speaking in a Lift
--   Not Eating Your Vegetables
--   Supporting Manchester United
+- Mild Public Rudeness
+- Speaking in a Lift
+- Not Eating Your Vegetables
+- Supporting Manchester United
 
 Despite the clear severity of some of these awful crimes, the Fakelandians refer to them all as "misdemeanours".
 
@@ -43,12 +43,13 @@ The Fakelandians have provided you with a functioning web server which you can c
 Let's test that out first.
 
 👉 Run `npm install` and then `npm run start-server`
+Matthew Note: You will need to NPM install in the server and client folders for this to run!
 
 ⚠️ NOTE: The command is `npm run start-server` NOT `npm start`
 
 The server will start up. You should see a little welcome message in your terminal:
 
-![Server Welcome](./docs/images/server_welcome.jpg 'Server welcome message')
+![Server Welcome](./docs/images/server_welcome.jpg "Server welcome message")
 
 It seems you can access the server by browsing to various URLs.
 
